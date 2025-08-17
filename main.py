@@ -117,24 +117,23 @@ def karatsuba_multiplication(a, b, B):  # Karatsuba method of multiplication wit
     out = school_addition(school_addition(P2_shifted, mid_shifted, B), P0, B)
     return remove_zeros(out)
 
+# Main function
 def main():
-    line = sys.stdin.readline().strip()
-    if not line: return
-    s1, s2, sb = line.split()
-    B = int(sb)
+    input = sys.stdin.readline().strip() # read line of input
+    sa, sb, sB = input.split()  # split into two numbers and base
+    B = int(sB) # converts the base string into an integer
 
-    a = parse_digits(s1)
-    b = parse_digits(s2)
+    a = parse_digits(sa)    # converts a into list of digits
+    b = parse_digits(sb)    # converts b into list of digits
 
-    s = school_addition(a, b, B)
-    p = karatsuba_multiplication(a, b, B)
-    q = [0]  
+    addition = school_addition(a, b, B) # calls the school_addition function
+    multiplication = karatsuba_multiplication(a, b, B)  # calls karatsuba_multiplication function
+    division = [0]  # returns 0 as division is not required
 
-    s_str = ''.join(str(d) for d in remove_zeros(s))
-    p_str = ''.join(str(d) for d in remove_zeros(p))
-    q_str = '0'  
+    # Converts digits back into strings and removes any leading zeros
+    addition_str = ''.join(str(d) for d in remove_zeros(addition))  
+    multiplication_str = ''.join(str(d) for d in remove_zeros(multiplication))
+    division_str = '0'  
 
-    print(s_str, p_str, q_str)
-
-if __name__ == "__main__":
-    main()
+    print(addition_str, multiplication_str, division_str)   # prints results in one line
+    main()  # calls main function
