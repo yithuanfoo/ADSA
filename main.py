@@ -46,12 +46,12 @@ def subtraction(a, b, B):   # subtrction needed for Karatsuba Multiplication
     out = []
     
     while i >= 0:   # this loops through the digits from right to left until it has gone through all of a
-        digit_a = a[i]
-        digit_b = b[i] if j >= 0 else 0
-        digit_a -= borrow
+        digit_a = a[i] - borrow
+        digit_b = b[j] if j >= 0 else 0
+
 
         if digit_a < digit_b:   # check if we need to borrow
-            da += B
+            digit_a += B
             borrow = 1
         else:
             borrow = 0
