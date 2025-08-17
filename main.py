@@ -55,7 +55,7 @@ def subtraction(a, b, B):   # subtrction needed for Karatsuba Multiplication
             borrow = 1
         else:
             borrow = 0
-            
+
         out.append(digit_a - digit_b)
         i -= 1
         j -= 1
@@ -117,4 +117,24 @@ def karatsuba_multiplication(a, b, B):  # Karatsuba method of multiplication wit
     out = school_addition(school_addition(P2_shifted, mid_shifted, B), P0, B)
     return remove_zeros(out)
 
-            
+def main():
+    line = sys.stdin.readline().strip()
+    if not line: return
+    s1, s2, sb = line.split()
+    B = int(sb)
+
+    a = parse_digits(s1)
+    b = parse_digits(s2)
+
+    s = school_addition(a, b, B)
+    p = karatsuba_multiplication(a, b, B)
+    q = [0]  
+
+    s_str = ''.join(str(d) for d in remove_zeros(s))
+    p_str = ''.join(str(d) for d in remove_zeros(p))
+    q_str = '0'  
+
+    print(s_str, p_str, q_str)
+
+if __name__ == "__main__":
+    main()
