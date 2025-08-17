@@ -136,4 +136,7 @@ def main():
     division_str = '0'  
 
     print(addition_str, multiplication_str, division_str)   # prints results in one line
-    main()  # calls main function
+
+# Calls main again
+if __name__ == "__main__":
+    main()
