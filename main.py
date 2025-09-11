@@ -57,12 +57,7 @@ class AVLTree:
             return self.left_rotate(root)
         
         return root
-    
-    def min_node_value(self, node):
-        while node.left:
-            node = node.left
-        return node
-    
+
     def max_node_value(self, node):
         while node.right:
             node = node.right
