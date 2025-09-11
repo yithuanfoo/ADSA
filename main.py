@@ -84,14 +84,14 @@ class AVLTree:
         root.height = 1 + max(self.height_get(root.left), self.height_get(root.right))
         balance = self.balance_get(root)
 
-        if balance > 1 and self.balance_get(root.left) > 0:
+        if balance > 1 and self.balance_get(root.left) >= 0:
             return self.right_rotate(root)
-        if balance > 1 and self.balance_get(root.left) <= 0:
+        if balance > 1 and self.balance_get(root.left) < 0:
             root.left = self.left_rotate(root.left)
             return self.right_rotate(root)
-        if balance < -1 and self.balance_get(root.right) < 0:
+        if balance < -1 and self.balance_get(root.right) <= 0:
             return self.left_rotate(root)
-        if balance < -1 and self.balance_get(root.right) >= 0:
+        if balance < -1 and self.balance_get(root.right) > 0:
             root.right = self.right_rotate(root.right)
             return self.left_rotate(root)
         
