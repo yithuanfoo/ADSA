@@ -63,6 +63,11 @@ class AVLTree:
             node = node.left
         return node
     
+    def max_node_value(self, node):
+        while node.right:
+            node = node.right
+        return node
+    
     def delete(self, root, key):
         if not root:
             return root
@@ -77,9 +82,9 @@ class AVLTree:
                 return root.right
             elif not root.right:
                 return root.left
-            temp = self.min_node_value(root.right)
+            temp = self.max_node_value(root.left)
             root.key = temp.key
-            root.right = self.delete(root.right, temp.key)
+            root.left = self.delete(root.left, temp.key)
 
         root.height = 1 + max(self.height_get(root.left), self.height_get(root.right))
         balance = self.balance_get(root)
