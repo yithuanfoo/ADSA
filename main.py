@@ -19,8 +19,8 @@ class AVLTree:
         T2 = x.right
         x.right = y
         y.left = T2
-        x.height = 1 + max(self.height_get(x.left), self.height_get(x.right))
         y.height = 1 + max(self.height_get(y.left), self.height_get(y.right))
+        x.height = 1 + max(self.height_get(x.left), self.height_get(x.right))
         return x
     
     def left_rotate(self, x):
