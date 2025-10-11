@@ -9,7 +9,7 @@ class Slot:
 # Class to represent entire hash table
 class HashTable:
     def __init__(self):
-        self.table = [] # Initialise has table
+        self.table = [] # Initialise hash table
         for _ in range(26): # Create 26 slots for each letter of the alphabet
             self.table.append(Slot())   # Append new slot to the table
 
@@ -66,8 +66,8 @@ if __name__ == "__main__":
     for item in inputs:  # Iterate through each input
         if not inputs:  # If input is empty, skip
             continue
-        operation = inputs[0]   # First character in array is the opearation
-        word = inputs[1:]   # The remaining characters in array are the word
+        operation = item[0]   # First character in array is the operation
+        word = item[1:]   # The remaining characters in array are the word
         if operation == "A":    # If operation is "A", insert word into hash table
             hash_table.insert(word)
         elif operation == "D":  # If operation is "D", delete word from hash table
